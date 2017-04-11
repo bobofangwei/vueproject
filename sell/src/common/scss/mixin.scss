@@ -1,0 +1,29 @@
+@mixin border-1px($color) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid $color;
+    }
+}
+
+@mixin font-style($font-size, $color, $font-weight, $line-height) {
+    font-size: $font-size;
+    color: $color;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+
+@mixin bg-img($url) {
+    background-image: url($url+'@2x.png');
+    @media(-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+        background-image: url($url+'@3x.png');
+    }
+}
+
+%padding18 {
+    padding: 18px;
+}
