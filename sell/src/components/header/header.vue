@@ -15,7 +15,7 @@
                     <span class="suppport">{{seller.supports[0].description}}</span>
                 </div>
             </div>
-            <div class="more" v-if="seller.supports" @click="toggleDetail">5个<i class="icon-keyboard_arrow_right"></i></div>
+            <div class="more" v-if="seller.supports" @click="toggleDetail">{{seller.supports.length}}个<i class="icon-keyboard_arrow_right"></i></div>
         </div>
         <div class="bulletin-wrapper">
             <span class="bulletin-icon"></span>

@@ -12,21 +12,6 @@
 <script type="text/javascript">
 import Vue from 'vue';
 export default {
-    data: function() {
-        return {
-            balls: [{
-                show: false
-            }, {
-                show: false
-            }, {
-                show: false
-            }, {
-                show: false
-            }, {
-                show: false
-            }]
-        };
-    },
     props: {
         food: {
             type: Object

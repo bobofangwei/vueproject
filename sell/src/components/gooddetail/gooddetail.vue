@@ -128,17 +128,25 @@ export default {
         toggleContent: function(onlyContent) {
             this.onlyContent = onlyContent;
             this.$nextTick(function() {
-                this.scroll = new BScroll(this.$el, {
-                    click: true
-                });
+                if (!this.scroll) {
+                    this.scroll = new BScroll(this.$el, {
+                        click: true
+                    });
+                } else {
+                    this.scroll.refresh();
+                }
             });
         },
         changeRateType: function(type) {
             this.selectRateType = type;
             this.$nextTick(function() {
-                this.scroll = new BScroll(this.$el, {
-                    click: true
-                });
+                if (!this.scroll) {
+                    this.scroll = new BScroll(this.$el, {
+                        click: true
+                    });
+                } else {
+                    this.scroll.refresh();
+                }
             });
         },
         needShow: function(rateType, rateText) {

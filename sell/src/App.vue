@@ -28,6 +28,8 @@ export default {
         this.$http.get('/api/seller?id=123').then(response => {
             if (response.body.errno === 0) {
                 // this.seller = response.body.data;
+                // 在vue的响应式中，后添加的属性是不能检测到的，因此需要object.assign({},...)
+                // 详情参见：https://cn.vuejs.org/v2/guide/reactivity.html
                 this.seller = Object.assign({}, this.seller, response.body.data);
             }
         });
