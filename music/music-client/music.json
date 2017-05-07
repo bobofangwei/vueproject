@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "name": "但愿人长久",
+    "artist": "王菲",
+    "duration": 261,
+    "music": "但愿人长久.mp3",
+    "poster": "但愿人长久.jpg",
+    "lyric": "但愿人长久.lrc"
+}, {
+    "id": 1,
+    "name": "独角戏",
+    "artist": "许茹芸",
+    "duration": 361,
+    "music": "独角戏.mp3",
+    "poster": "独角戏.jpg",
+    "lyric": "独角戏.lrc"
+}, {
+    "id": 1,
+    "name": "如果云知道",
+    "artist": "王菲",
+    "duration": 351,
+    "music": "如果云知道.mp3",
+    "poster": "如果云知道.jpg",
+    "lyric": "如果云知道.lrc"
+}]

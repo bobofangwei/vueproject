@@ -1,0 +1,55 @@
+{{extend("./base")}}
+{{#block("style")}}
+    <style type="text/css">
+        .add-wrapper{
+            margin:20px 0;
+        }
+        .music-list{
+            width:90%;
+            border-collapse:collapse;
+        }
+        .music-list th,.music-list td{
+            text-align:center;
+            border:1px solid #ccc;
+        }
+        .add{
+            text-decoration:none;
+            padding:5px 10px;
+            border:1px solid #ccc;
+            color:#000;
+        }
+    </style>
+{{/block}}
+{{#block("content")}}
+    <div class="add-wrapper">
+        <a href="/music/add" class="add">增加</a>  
+    </div> 
+        <table class="music-list">
+        <thead>
+            <tr>
+                <th>标识</th>
+                <th>名称</th>
+                <th>歌手</th>
+                <th>时长</th>
+                <th>音乐</th>
+                <th>海报</th>
+                <th>歌词</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each(list)}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.artist}}</td>
+                <td>{{this.duration}}</td>
+                <td>{{this.music}}</td>
+                <td>{{this.poster}}</td>
+                <td>{{this.lyric}}</td>
+                <td><a  href="/music/edit/{{this.id}}" style="margin-right:20px">编辑</a><a href="/music/delete/{{this.id}}">删除</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{/block}}

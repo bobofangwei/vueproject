@@ -1,0 +1,67 @@
+{{extend("./base")}}
+{{#block("style")}}
+    <style type="text/css">
+        .form-group{
+            display:flex;
+            margin:7px auto;
+        }
+        label{
+            width:80px;
+            text-align: right;
+            margin-right:15px;
+        }
+        input{
+            flex:1;
+        }
+        .submit{
+            width:100px;
+        }
+    </style>
+{{/block}}
+{{#block("content")}}
+    <form id="addmusicform" action="/music/add" name="addmusicform" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">名称</label>
+            <input type="text" id="name" name="name">
+        </div> 
+        <div class="form-group">
+            <label for="artist">歌手</label>
+            <input type="text" id="artist" name="artist">
+        </div> 
+        <div class="form-group">
+            <label for="music">歌曲</label>
+            <input type="file" id="music" name="music" accept="audio/*">            
+        </div> 
+        <div class="form-group">
+            <label for="poster">海报</label>
+            <input type="file" id="poster" name="poster" accept="image/*">            
+        </div> 
+        <div class="form-group">
+            <label for="lyric">歌词</label>
+            <input type="file" id="lyric" name="lyric" accept=".lrc">            
+        </div> 
+        <div class="form-group">
+            <input type="hidden" id="duration" name="duration">
+            <input type="submit" class="submit" value="提交">  
+        </div>
+    </form>
+{{/block}}
+{{#block("script")}}
+<script type="text/javascript">
+    (function(){
+        var durationDom=document.getElementById('duration');
+        var musicDom=document.getElementById('music');
+        musicDom.addEventListener('change',function(e){
+            var file=this.files[0];
+            var objUrl=window.URL.createObjectURL(file);
+            console.log('objUrl:',objUrl);
+            var audio=new Audio();
+            audio.src=objUrl;
+            audio.addEventListener('loadedmetadata',function(){
+                durationDom.value=this.duration;
+                window.URL.revokeObjectURL(objUrl);
+            });
+        },false);
+    })();
+</script>
+{{/block}}
